@@ -1,0 +1,11 @@
+export { ReactComponent as Box } from './Box.svg';
+export { ReactComponent as BoxChecked } from './BoxChecked.svg';
+export { ReactComponent as ChevronDown } from './ChevronDown.svg';
+export { ReactComponent as CheckMark } from './CheckMark.svg';
+export { ReactComponent as ButtonLoader } from './ButtonLoader.svg';
+export { ReactComponent as Edit } from './Edit.svg';
+export { ReactComponent as Frown } from './Frown.svg';
+export { ReactComponent as CircleCheck } from './CircleCheck.svg';
+export { ReactComponent as QuestionMark } from './QuestionMark.svg';
+export { ReactComponent as Settings } from './Settings.svg';
+export { ReactComponent as GiftBox } from './GiftBox.svg';

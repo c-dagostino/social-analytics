@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "social-analysis-dev-20191101121128-authRole",
+            "UnauthRoleArn": "arn:aws:iam::064890193549:role/social-analysis-dev-20191101121128-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::064890193549:role/social-analysis-dev-20191101121128-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "social-analysis-dev-20191101121128-deployment",
+            "UnauthRoleName": "social-analysis-dev-20191101121128-unauthRole",
+            "StackName": "social-analysis-dev-20191101121128",
+            "StackId": "arn:aws:cloudformation:us-west-2:064890193549:stack/social-analysis-dev-20191101121128/67f0c320-fcdb-11e9-a08f-06e601cb709c"
+        }
+    }
+}

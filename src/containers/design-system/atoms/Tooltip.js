@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { bool, string, node, oneOfType } from 'prop-types';
+import { bool, string, arrayOf } from 'prop-types';
 
 import { ThemeContext } from 'styled-components';
 import MaterialTooltip from '@material-ui/core/Tooltip';
@@ -9,7 +9,7 @@ const propTypes = {
   open: bool,
   placement: string,
   title: string,
-  children: oneOfType(node, string),
+  children: arrayOf(string),
 };
 
 const defaultProps = {
@@ -118,7 +118,7 @@ const Tooltip = ({ open, placement, title, children }) => {
   const theme = useContext(ThemeContext);
   const { arrow, ...classes } = useArrowStyles(theme);
   const [arrowRef, setArrowRef] = useState(null);
-
+  console.log(children);
   return (
     <MaterialTooltip
       classes={classes}

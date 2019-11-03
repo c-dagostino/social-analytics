@@ -1,11 +1,10 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from './design-system/atoms';
+import { GlobalStyles } from '../design-system/atoms';
 import { withRouter } from 'react-router';
 import { Helmet } from 'react-helmet';
-import Routes from '../Routes';
-import { THEME } from './constants';
-
+import Routes from './routes';
+import { THEME } from '../constants';
 
 const App = () => {
   return (

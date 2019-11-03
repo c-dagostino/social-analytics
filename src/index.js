@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import Amplify from 'aws-amplify';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
-import App from './App/App';
+import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
+import store from './store';
+import awsmobile from './aws-exports';
+
 Amplify.Logger.LOG_LEVEL = `${process.env.REACT_APP_AWS_LOG_LEVEL}`;
 
 // eslint-disable-next-line no-unused-expressions
@@ -13,7 +17,6 @@ createGlobalStyle`
     v2.0 | 20110126
     License: none (public domain)
   */
-
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -59,10 +62,15 @@ createGlobalStyle`
   }
 `;
 
+Amplify.configure(awsmobile);
+
 ReactDOM.render(
+    <Provider store={store}>
     <Router>
         <App />
-    </Router>, 
+    </Router>
+    </Provider>
+    , 
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -51,7 +51,7 @@ FormikInput.propTypes = {
   field: shape({}),
   form: shape({}),
   label: string,
-  mask: arrayOf(oneOfType([instanceOf(RegExp), string])),
+  mask: arrayOf(oneOfType([instanceOf(RegExp), string,])),
 };
 
 FormikInput.defaultProps = {

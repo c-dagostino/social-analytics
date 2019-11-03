@@ -4,9 +4,9 @@ const space = [0, 4, 8, 16, 32, 64, 128, 256, 512];
 const fontSizes = [12, 14, 16, 18, 22, 26, 30, 40, 85];
 
 const fonts = {
-  zilla: 'serif',
-  poppins: 'sans-serif !important',
-  sofia: 'sans-serif !important',
+  zilla: '"Zilla Slab", serif',
+  poppins: 'Poppins, sans-serif !important',
+  sofia: 'sofia-pro, sans-serif !important',
 };
 
 const baseColors = {

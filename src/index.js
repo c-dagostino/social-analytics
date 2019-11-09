@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import Amplify from 'aws-amplify';
@@ -8,7 +8,6 @@ import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import store from './store';
 import awsmobile from './aws-exports';
-
 Amplify.Logger.LOG_LEVEL = `${process.env.REACT_APP_AWS_LOG_LEVEL}`;
 
 // eslint-disable-next-line no-unused-expressions
@@ -66,9 +65,9 @@ Amplify.configure(awsmobile);
 
 ReactDOM.render(
     <Provider store={store}>
-    <Router>
-        <App />
-    </Router>
+        <Router>
+            <App />
+        </Router>
     </Provider>
     , 
     document.getElementById('root'));

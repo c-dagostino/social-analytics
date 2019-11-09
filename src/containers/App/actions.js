@@ -7,3 +7,10 @@ export function setError(error) {
   };
 }
 
+export function setUser(user) {
+  return {
+    type: ACTIONS.SET_USER,
+    user
+  };
+}
+

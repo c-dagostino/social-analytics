@@ -1,7 +1,7 @@
 import React from 'react';
 import { shape, string, bool } from 'prop-types';
-import { Box, Error } from '../design-system/atoms'
-import { Headline, FormikInput, FormikSubmitButton } from '../design-system/molecules'
+import { Box, Error } from '../../design-system/atoms'
+import { Headline, FormikInput, FormikSubmitButton } from '../../design-system/molecules'
 import { Field, Form } from 'formik';
 
 

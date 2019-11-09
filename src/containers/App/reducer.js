@@ -4,7 +4,8 @@ import {
 
 export const initialState = {
   isLoading: false,
-  error: null
+  error: null,
+  user: null,
 };
 
 function appReducer(state = initialState, action) {
@@ -15,6 +16,11 @@ function appReducer(state = initialState, action) {
         error: action.error,
         isLoading: action.isLoading,
       }
+      case ACTIONS.SET_USER:
+        return {
+          ...state,
+          user: action.user,
+        }
     default:
       return state;
   }

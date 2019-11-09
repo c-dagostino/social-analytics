@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { string, shape, func } from 'prop-types';
 import { Auth } from 'aws-amplify';
 import SignInForm from './formWrapper'; 
@@ -6,11 +6,14 @@ import {connect, useDispatch } from 'react-redux'
 import Logger from '../../components/logging';
 import * as actions from '../App/actions'
 import * as selectors from '../App/selectors';
+import { useAuth } from "../../context/auth";
 const logger = new Logger({ logName: 'social-analysis' });
 
 
 const SignIn = ({error, location, history}) => {
       const dispatch = useDispatch();
+      const { setAuthenticatedUserId } = useAuth();
+      const [isLoggedIn, setIsLoggedIn] = useState(false);
 
       const getReferrer = () => {
         if (location && location.state && location.state.referrer) {
@@ -30,14 +33,25 @@ const SignIn = ({error, location, history}) => {
                 validationData // Optional, a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication
               })
                 .then((user) => {
-                  logger.log(`successfully signed in: ${JSON.stringify(user)}`);
-                  history.push(getReferrer());
+                  if (user && user.username) {
+                    logger.log(`successfully signed in: ${JSON.stringify(user)}`);
+                    setAuthenticatedUserId(user.username);
+                    setIsLoggedIn(true);
+                  } else {
+                    setAuthenticatedUserId(null);
+                    setIsLoggedIn(false);
+                  }
+                  
                 })
                 .catch(err => {
                   dispatch(actions.setError(err.message));
                   logger.log(`${email} failed login error: ${JSON.stringify(err)}`);
                 })
       };
+
+      if (isLoggedIn) {
+        history.push(getReferrer());
+      } 
 
       return (
           <SignInForm onSubmit={onSignIn} error={error} />

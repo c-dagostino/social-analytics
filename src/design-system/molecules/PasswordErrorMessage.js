@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { MSG } from '../../constants';
+import { MSG } from '../../containers/constants';
 
 const ErrorWrapper = styled('div')({
   ul: {

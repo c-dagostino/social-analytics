@@ -4,13 +4,9 @@ import { arrayOf, shape, string, func } from 'prop-types';
 
 import { Tabs, Menu } from '../../molecules';
 import { Box, Tab, Icon, MenuItem } from '../../atoms';
-
-import { ReactComponent as Logo } from '../../assets/svg/logo_sightbox.svg';
-
-import ShareSaveCallout from './ShareSaveCallout';
+import { Headline } from '../../../design-system/molecules/'
 import MemberName from './MemberName';
 
-const SUPPORT_URL = 'https://support.sightbox.com';
 
 const propTypes = {
   onClickPage: func.isRequired,
@@ -47,12 +43,6 @@ const NavigationInner = styled.div(() => ({
   alignItems: 'center',
 }));
 
-const SupportButton = styled.a(() => ({
-  height: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  paddingBottom: '2px',
-}));
 
 const renderTabs = tabs =>
   tabs.map(({ title, path }) => (
@@ -79,12 +69,6 @@ const SettingsButton = styled.button(() => ({
   display: 'flex',
   alignItems: 'center',
   backgroundColor: 'transparent',
-}));
-
-const HoverIcon = styled(Icon)(({ theme }) => ({
-  '&:hover': {
-    '> path': { fill: theme.colors.illustrationBlue },
-  },
 }));
 
 const NavigationBar = ({
@@ -125,7 +109,7 @@ const NavigationBar = ({
             <Box display="flex" alignItems="center">
               <Box mr="36px" mt="21px" mb="15px">
                 <a role="button" onClick={onClickLogo} href="/">
-                  <Logo width="130px" />
+                 <Headline>Site Analysis</Headline>
                 </a>
               </Box>
 
@@ -139,40 +123,9 @@ const NavigationBar = ({
 
           <Box flex="1">
             <Box display="flex" justifyContent="flex-end">
-              <Box mr="5px" ml="5px">
-                <Tabs onChange={onClickPage} active={currentPath}>
-                  <Tab
-                    id="/my-account/share"
-                    href="/my-account/share"
-                    ml={0}
-                    mr={0}
-                    padding="21px 0px"
-                  >
-                    <ShareSaveCallout>
-                      <Box display="flex" alignItems="center" height="100%">
-                        <HoverIcon name="GiftBox" />
-                      </Box>
-                    </ShareSaveCallout>
-                  </Tab>
-                </Tabs>
-              </Box>
+              
 
-              <Box
-                mr="5px"
-                ml="5px"
-                role="button"
-                display="flex"
-                alignItems="center"
-              >
-                <SupportButton
-                  href={SUPPORT_URL}
-                  role="button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <HoverIcon name="QuestionMark" />
-                </SupportButton>
-              </Box>
+             
 
               <Box
                 ml="5px"

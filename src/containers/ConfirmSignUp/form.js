@@ -12,7 +12,7 @@ const propTypes = {
   error: string,
   values: shape({
     email: string,
-    password: string,
+    code: string,
   }),
 };
 
@@ -21,7 +21,7 @@ const defaultProps = {
   error: '',
   values: {
     email: '',
-    password: '',
+    code: '',
   },
 };
 
@@ -33,7 +33,7 @@ const showHideError = error => (
     </Box>
   );
 
-const SignInForm = ({isSubmitting, error, handleSubmit}) => {
+const ConfirmSignUpForm = ({isSubmitting, error, handleSubmit}) => {
  return (
   <Form noValidate onSubmit={e => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const SignInForm = ({isSubmitting, error, handleSubmit}) => {
   }}>
       <Box maxContentWidth mx={[0, 'Auto']} mb={[0, '100px']}>
         <Box mt={[48, 70]} textAlign="center">
-          <Headline>Sign In</Headline>
+          <Headline>Verify Sign Up</Headline>
         </Box>
         <Box display="block" flexWrap="wrap" alignItems="baseline">
           <Box
@@ -64,19 +64,14 @@ const SignInForm = ({isSubmitting, error, handleSubmit}) => {
             display="block"
           >
             <Field
-              name="password"
-              placeholder="password"
-              label="password"
-              type="password"
+              name="code"
+              placeholder="enter code"
+              label="code"
+              type="code"
               component={FormikInput}
             />
           </Box>
-          <Box>
-          Not a member yet?{' '}
-          <a href="/sign-up" title="Sign Up Now">
-            Sign Up Now
-          </a>{' '}
-        </Box>
+         
           <Box>
           <Box display="flex" justifyContent="center">
           <Field
@@ -99,7 +94,7 @@ const SignInForm = ({isSubmitting, error, handleSubmit}) => {
 </Form>
 )};
 
-SignInForm.propTypes = propTypes;
-SignInForm.defaultProps = defaultProps;
+ConfirmSignUpForm.propTypes = propTypes;
+ConfirmSignUpForm.defaultProps = defaultProps;
 
-export default useFormHook(SignInForm)
+export default useFormHook(ConfirmSignUpForm)

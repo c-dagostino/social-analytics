@@ -2,7 +2,7 @@ import React from 'react';
 import { shape, func, string } from 'prop-types';
 import Nav from '../Nav'
 
-const Home = ({history, location}) => {
+const Tweets = ({history, location}) => {
 
       return (
           <>
@@ -21,6 +21,6 @@ const propTypes = {
     }).isRequired,
   };
 
-Home.propTypes = propTypes;
+Tweets.propTypes = propTypes;
 
-export default Home;
+export default Tweets;

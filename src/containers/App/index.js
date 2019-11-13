@@ -6,7 +6,6 @@ import { Auth, Hub } from 'aws-amplify';
 import { Helmet } from 'react-helmet';
 import { THEME } from '../constants';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Nav from '../Nav'
 import Routes from './routes';
 import { AuthContext } from '../../context/auth'
 
@@ -48,6 +47,7 @@ const App = () => {
       <AuthContext.Provider value={{ isAuthenticated, setAuthenticatedUserId }} >
       <Router>
       <ThemeProvider theme={THEME}>
+      
       <Routes/>
         <Helmet>
           <link rel="stylesheet" href="https://use.typekit.net/ubn5qiw.css" />
@@ -61,7 +61,6 @@ const App = () => {
           />
         </Helmet>
       <GlobalStyles />
-        <Nav />
       </ThemeProvider>
       </Router>
     </AuthContext.Provider>

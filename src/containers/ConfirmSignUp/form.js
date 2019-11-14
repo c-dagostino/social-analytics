@@ -1,31 +1,32 @@
-import React from "react";
-import { shape, string, bool } from "prop-types";
-import { Field, Form } from "formik";
-import useFormHook from "./formHook";
-import { Box, Error } from "../../design-system/atoms";
+import React from 'react';
+import { shape, string, bool, func } from 'prop-types';
+import { Field, Form } from 'formik';
+import useFormHook from './formHook';
+import { Box, Error } from '../../design-system/atoms';
 import {
   Headline,
   FormikInput,
-  FormikSubmitButton
-} from "../../design-system/molecules";
-import { FLD, COPY } from "../constants";
+  FormikSubmitButton,
+} from '../../design-system/molecules';
+import { FLD, COPY } from '../constants';
 
 const propTypes = {
   isSubmitting: bool,
   error: string,
+  handleSubmit: func.isRequired,
   values: shape({
     email: string,
-    code: string
-  })
+    code: string,
+  }),
 };
 
 const defaultProps = {
   isSubmitting: false,
-  error: "",
+  error: '',
   values: {
-    email: "",
-    code: ""
-  }
+    email: '',
+    code: '',
+  },
 };
 const showHideError = error => (
   <Box mt="20px" display="flex" justifyContent="center">
@@ -43,13 +44,13 @@ const ConfirmSignUpForm = ({ isSubmitting, error, handleSubmit }) => (
       handleSubmit();
     }}
   >
-    <Box maxContentWidth mx={[0, "Auto"]} mb={[0, "100px"]}>
+    <Box maxContentWidth mx={[0, 'Auto']} mb={[0, '100px']}>
       <Box mt={[48, 70]} textAlign="center">
         <Headline>{COPY.SIGNUP_CONFIRM_HEADING}</Headline>
       </Box>
       <Box display="block" flexWrap="wrap" alignItems="baseline">
         <Box
-          flex={["60%", "40%"]}
+          flex={['60%', '40%']}
           mb={[18, 32]}
           borderRight="12px solid transparent"
         >
@@ -62,7 +63,7 @@ const ConfirmSignUpForm = ({ isSubmitting, error, handleSubmit }) => (
         </Box>
 
         <Box
-          flex={["60%", "40%"]}
+          flex={['60%', '40%']}
           mb={[18, 32]}
           borderRight="12px solid transparent"
           display="block"

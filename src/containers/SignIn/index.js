@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { string, shape, func } from "prop-types";
-import { Auth } from "aws-amplify";
-import SignInForm from "./form";
-import { connect, useDispatch } from "react-redux";
-import Logger from "../../components/logging";
-import * as actions from "../App/actions";
-import * as selectors from "../App/selectors";
-import { useAuth } from "../../context/auth";
-const logger = new Logger({ logName: "social-analysis" });
+import React, { useState } from 'react';
+import { string, shape, func } from 'prop-types';
+import { Auth } from 'aws-amplify';
+import { connect, useDispatch } from 'react-redux';
+import SignInForm from './form';
+import Logger from '../../components/logging';
+import * as actions from '../App/actions';
+import * as selectors from '../App/selectors';
+import { useAuth } from '../../context/auth';
+
+const logger = new Logger({ logName: 'social-analysis' });
 
 const SignIn = ({ error, location, history }) => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const SignIn = ({ error, location, history }) => {
       return referrer;
     }
 
-    return "/";
+    return '/';
   };
 
   const onSignIn = async values => {
@@ -29,7 +30,7 @@ const SignIn = ({ error, location, history }) => {
     await Auth.signIn({
       username: email, // Required, the username
       password, // Optional, the password
-      validationData // Optional, a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication
+      validationData, // Optional, a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication
     })
       .then(user => {
         if (user && user.username) {
@@ -62,25 +63,25 @@ const propTypes = {
   error: string,
   location: shape({
     state: shape({
-      referrer: string
-    })
+      referrer: string,
+    }),
   }),
   history: shape({
-    push: func
-  })
+    push: func,
+  }),
 };
 
 const defaultProps = {
   error: null,
   location: {
     state: {
-      referrer: "/"
-    }
+      referrer: '/',
+    },
   },
-  history: null
+  history: null,
 };
 
-SignInForm.propTypes = propTypes;
-SignInForm.defaultProps = defaultProps;
+SignIn.propTypes = propTypes;
+SignIn.defaultProps = defaultProps;
 
 export default connect(mapStateToProps)(SignIn);

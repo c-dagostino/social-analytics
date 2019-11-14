@@ -1,5 +1,5 @@
 module.exports = {
-extends: ['airbnb-base', 'plugin:prettier/recommended', 'prettier/react'],
+extends: ['airbnb-base', "plugin:react/recommended", 'plugin:prettier/recommended', 'prettier/react'],
   plugins: ['jest', 'react-hooks'],
   env: {
     browser: true,
@@ -30,12 +30,12 @@ extends: ['airbnb-base', 'plugin:prettier/recommended', 'prettier/react'],
         devDependencies: true,
       },
     ],
-    'jsx-a11y/label-has-associated-control': [
-      2,
-      {
-        controlComponents: ['Field'],
-      },
-    ],
+    // 'jsx-a11y/label-has-associated-control': [
+    //   2,
+    //   {
+    //     controlComponents: ['Field'],
+    //   },
+    // ],
     'react/jsx-filename-extension': [1, {
       'extensions': ['.js', '.jsx']
     }],

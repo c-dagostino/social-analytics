@@ -1,12 +1,19 @@
 import React from 'react';
-import { shape, string, bool } from 'prop-types';
+import { shape, string, bool, func } from 'prop-types';
+import { Field, Form } from 'formik';
 import useFormHook from './formHook';
-import { FormikInput } from '../../design-system/molecules';
 import { FLD, COPY } from '../constants';
+import { Box, Error } from '../../design-system/atoms';
+import {
+  Headline,
+  FormikSubmitButton,
+  FormikInput,
+} from '../../design-system/molecules';
 
 const propTypes = {
   isSubmitting: bool,
   error: string,
+  handleSubmit: func.isRequired,
   values: shape({
     email: string,
     password: string,

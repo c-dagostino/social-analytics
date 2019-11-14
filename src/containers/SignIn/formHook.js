@@ -1,12 +1,12 @@
-import * as yup from "yup";
-import { withFormik } from "formik";
-import * as validators from "../utils/validators";
+import * as yup from 'yup';
+import { withFormik } from 'formik';
+import * as validators from '../utils/validators';
 
 const mapPropsToValues = () => {
   const newValues = {
-    email: "",
-    password: "",
-    error: null
+    email: '',
+    password: '',
+    error: null,
   };
 
   return newValues;
@@ -16,11 +16,11 @@ const validationSchema = () =>
   yup.lazy(() => {
     return yup.object().shape({
       password: validators.signInPassword,
-      email: validators.signInEmail
+      email: validators.signInEmail,
     });
   });
 
-const displayName = "SignInForm";
+const displayName = 'SignInForm';
 const validateOnBlur = true;
 const validateOnChange = true;
 
@@ -29,7 +29,7 @@ const formikConfig = {
   validationSchema,
   displayName,
   validateOnBlur,
-  validateOnChange
+  validateOnChange,
 };
 
 const useFormHook = form =>
@@ -37,7 +37,7 @@ const useFormHook = form =>
     ...formikConfig,
     handleSubmit: (values, { props: { onSubmit } }) => {
       onSubmit(values);
-    }
+    },
   })(form);
 
 export default useFormHook;

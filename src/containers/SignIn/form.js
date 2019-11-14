@@ -1,24 +1,32 @@
-import { shape, string, bool } from "prop-types";
-import useFormHook from "./formHook";
-import { FLD, COPY } from "../constants";
-import { FormikInput } from "../../design-system/molecules";
+import React from 'react';
+import { shape, string, bool, func } from 'prop-types';
+import { Field, Form } from 'formik';
+import useFormHook from './formHook';
+import { FLD, COPY } from '../constants';
+import { Box, Error } from '../../design-system/atoms';
+import {
+  Headline,
+  FormikSubmitButton,
+  FormikInput,
+} from '../../design-system/molecules';
 
 const propTypes = {
   isSubmitting: bool,
   error: string,
+  handleSubmit: func.isRequired,
   values: shape({
     email: string,
-    password: string
-  })
+    password: string,
+  }),
 };
 
 const defaultProps = {
   isSubmitting: false,
-  error: "",
+  error: '',
   values: {
-    email: "",
-    password: ""
-  }
+    email: '',
+    password: '',
+  },
 };
 
 const showHideError = error => (
@@ -38,13 +46,13 @@ const SignInForm = ({ isSubmitting, error, handleSubmit }) => {
         handleSubmit();
       }}
     >
-      <Box maxContentWidth mx={[0, "Auto"]} mb={[0, "100px"]}>
+      <Box maxContentWidth mx={[0, 'Auto']} mb={[0, '100px']}>
         <Box mt={[48, 70]} textAlign="center">
           <Headline>{COPY.SIGNIN_HEADING}</Headline>
         </Box>
         <Box display="block" flexWrap="wrap" alignItems="baseline">
           <Box
-            flex={["60%", "40%"]}
+            flex={['60%', '40%']}
             mb={[18, 32]}
             borderRight="12px solid transparent"
           >
@@ -57,7 +65,7 @@ const SignInForm = ({ isSubmitting, error, handleSubmit }) => {
           </Box>
 
           <Box
-            flex={["60%", "40%"]}
+            flex={['60%', '40%']}
             mb={[18, 32]}
             borderRight="12px solid transparent"
             display="block"
@@ -71,10 +79,10 @@ const SignInForm = ({ isSubmitting, error, handleSubmit }) => {
             />
           </Box>
           <Box>
-            {COPY.SIGNIN_NOT_A_MEMBER}{" "}
+            {COPY.SIGNIN_NOT_A_MEMBER}{' '}
             <a href="/sign-up" title={COPY.SIGNIN_SIGNUP_NOW}>
               {COPY.SIGNIN_SIGNUP_NOW}
-            </a>{" "}
+            </a>{' '}
           </Box>
           <Box>
             <Box display="flex" justifyContent="center">
@@ -82,7 +90,7 @@ const SignInForm = ({ isSubmitting, error, handleSubmit }) => {
                 component={props => (
                   <FormikSubmitButton
                     disabled={isSubmitting}
-                    errorMessage={"error"}
+                    errorMessage={'error'}
                     {...props}
                   />
                 )}

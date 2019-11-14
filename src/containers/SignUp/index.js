@@ -1,8 +1,8 @@
 import React from 'react';
 import { string, shape, func } from 'prop-types';
 import { Auth } from 'aws-amplify';
-import { connect, useDispatch } from "react-redux";
-import SignUpForm from "./form";
+import { connect, useDispatch } from 'react-redux';
+import SignUpForm from './form';
 import Logger from '../../components/logging';
 import * as actions from '../App/actions';
 import * as selectors from '../App/selectors';
@@ -50,7 +50,7 @@ const defaultProps = {
   history: null,
 };
 
-SignUpForm.propTypes = propTypes;
-SignUpForm.defaultProps = defaultProps;
+SignUp.propTypes = propTypes;
+SignUp.defaultProps = defaultProps;
 
 export default connect(mapStateToProps)(SignUp);

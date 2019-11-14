@@ -8,7 +8,6 @@ const signOut = async () => {
 };
 
 const Nav = ({ history, location }) => {
-  debugger;
   const onClickPage = path => {
     history.push(path);
   };

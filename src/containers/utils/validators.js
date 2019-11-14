@@ -23,8 +23,8 @@ export const confirmPassword = yup
   .string()
   .oneOf([yup.ref('userPassword'), null], MSG.MSG_REQ_CONFIRM_PASSWORD);
 
-  export const firstName = yup.string().required(MSG.MSG_REQ_FIRST_NAME);
+export const firstName = yup.string().required(MSG.MSG_REQ_FIRST_NAME);
 
-  export const lastName = yup.string().required(MSG.MSG_REQ_LAST_NAME);
+export const lastName = yup.string().required(MSG.MSG_REQ_LAST_NAME);
 
-  export const signUpCode = yup.string().required(MSG.MSG_REQ_SIGNUP_CODE);
+export const signUpCode = yup.string().required(MSG.MSG_REQ_SIGNUP_CODE);

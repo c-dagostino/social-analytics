@@ -4,8 +4,8 @@ import { Auth } from 'aws-amplify';
 import { connect, useDispatch } from 'react-redux';
 import SignInForm from './form';
 import Logger from '../../components/logging';
-import * as actions from '../App/actions';
-import * as selectors from '../App/selectors';
+import actions from '../App/actions';
+import selectors from '../App/selectors';
 import { useAuth } from '../../context/auth';
 
 const logger = new Logger({ logName: 'social-analysis' });
@@ -56,7 +56,7 @@ const SignIn = ({ error, location, history }) => {
 };
 
 function mapStateToProps(state, ownProps) {
-  const selectError = selectors.makeSelectError();
+  const selectError = selectors.makeSelectError;
   return { error: selectError(state, ownProps) };
 }
 const propTypes = {

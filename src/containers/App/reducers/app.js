@@ -1,6 +1,4 @@
-import {
- ACTIONS
-} from '../constants';
+import { ACTIONS } from '../../constants';
 
 export const initialState = {
   isLoading: false,
@@ -15,12 +13,18 @@ function appReducer(state = initialState, action) {
         ...state,
         error: action.error,
         isLoading: action.isLoading,
-      }
-      case ACTIONS.SET_USER:
-        return {
-          ...state,
-          user: action.user,
-        }
+      };
+    case ACTIONS.SET_LOADING_AND_ERROR:
+      return {
+        ...state,
+        error: action.error,
+        isLoading: action.isLoading,
+      };
+    case ACTIONS.SET_USER:
+      return {
+        ...state,
+        user: action.user,
+      };
     default:
       return state;
   }

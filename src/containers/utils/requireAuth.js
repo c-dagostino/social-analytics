@@ -22,15 +22,12 @@ export default function RequireAuth(ComposedComponent) {
       const token = localStorage.getItem(
         'CognitoIdentityServiceProvider.17s9fcn6n7dtqkn4mqn7r7ll17.a6687381-b05a-402a-92c6-9af51510daae.accessToken'
       );
-      console.log(localStorage.key(0));
-      console.log('token: ' + token);
     }
 
     render() {
       const { locale } = this.props;
       const { userIsAuthenticated } = this.state;
-      console.log(userIsAuthenticated);
-
+      
       if (!userIsAuthenticated) {
         return (
           <Redirect

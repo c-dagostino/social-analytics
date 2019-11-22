@@ -4,8 +4,8 @@ import { Auth } from 'aws-amplify';
 import { connect, useDispatch } from 'react-redux';
 import SignUpForm from './form';
 import Logger from '../../components/logging';
-import * as actions from '../App/actions';
-import * as selectors from '../App/selectors';
+import actions from '../App/actions';
+import selectors from '../App/selectors';
 
 const logger = new Logger({ logName: 'social-analysis' });
 

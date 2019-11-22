@@ -3,8 +3,8 @@ import { string, shape, func } from 'prop-types';
 import { Auth } from 'aws-amplify';
 import { connect, useDispatch } from 'react-redux';
 import Logger from '../../components/logging';
-import * as actions from '../App/actions';
-import * as selectors from '../App/selectors';
+import actions from '../App/actions';
+import selectors from '../App/selectors';
 import ConfirmSignUpForm from './form';
 
 const logger = new Logger({ logName: 'social-analysis' });

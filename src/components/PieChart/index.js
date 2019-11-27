@@ -3,6 +3,7 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PieChart from 'react-minimal-pie-chart';
+import { Box } from '../../design-system/atoms';
 import selectors from '../../containers/App/selectors';
 
 const getSentimentFromTweets = tweets => {
@@ -14,14 +15,14 @@ const getSentimentFromTweets = tweets => {
     value: tweets.filter(t => t.sentiment === 'POSITIVE').length,
   });
   data.push({
-    title: 'Neutral',
+    title: 'Negative',
     color: '#c12533',
-    value: tweets.filter(t => t.sentiment === 'NEUTRAL').length,
+    value: tweets.filter(t => t.sentiment === 'NEGATIVE').length,
   });
   data.push({
-    title: 'Negative',
+    title: 'Neutral',
     color: '#dad94b',
-    value: tweets.filter(t => t.sentiment === 'NEGATIVE').length,
+    value: tweets.filter(t => t.sentiment === 'NEUTRAL').length,
   });
 
   return data;
@@ -48,18 +49,27 @@ const TweetsPieChart = ({ tweets }) => {
     const data = getSentimentFromTweets(tweets);
     const legend = getLegend(data);
     return (
-      <div>
-        <h1>Sentiment</h1>
-        <PieChart
-          x={50}
-          y={60}
-          outerRadius={100}
-          innerRadius={50}
-          data={data}
-          style={{ height: '250px', width: '250px' }}
-        />
-        <div style={{ paddingTop: '15px' }}>{legend}</div>
-      </div>
+      <Box>
+        <Box textAlign="center">
+          <h1>Overall Sentiment</h1>
+        </Box>
+        <Box>
+          <PieChart
+            x={50}
+            y={60}
+            outerRadius={150}
+            innerRadius={75}
+            data={data}
+            style={{
+              height: '250px',
+              width: '250px',
+              marginLeft: '50px',
+              marginTop: '25px',
+            }}
+          />
+          <Box mt={[15, 15]}>{legend}</Box>
+        </Box>
+      </Box>
     );
   }
 

@@ -1,34 +1,34 @@
 import React from 'react';
-import { node, func, oneOf, bool } from 'prop-types';
+import { node, func, oneOf, string, oneOfType, bool } from 'prop-types';
 
 import { Box } from '../atoms';
 
 const propTypes = {
   onChange: func.isRequired,
   children: node,
-  active: bool,
+  activePath: oneOfType([string, bool]),
   size: oneOf(['small', 'large']),
 };
 
 const defaultProps = {
   children: null,
   size: 'large',
-  active: false,
+  activePath: '/',
 };
 
-const renderTabs = (children, onChange, active, size) =>
+const renderTabs = (children, onChange, activePath, size) =>
   React.Children.map(children, (tab, i) => {
     const id = tab.props.id || i;
-
+    const isActive = activePath === id;
     return React.cloneElement(tab, {
       onClick: () => onChange(id),
-      active: active === id,
+      active: isActive,
       size,
     });
   });
 
-const Tabs = ({ children, onChange, active, size }) => (
-  <Box display="flex">{renderTabs(children, onChange, active, size)}</Box>
+const Tabs = ({ children, onChange, activePath, size }) => (
+  <Box display="flex">{renderTabs(children, onChange, activePath, size)}</Box>
 );
 
 Tabs.propTypes = propTypes;

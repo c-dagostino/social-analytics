@@ -49,7 +49,7 @@ const SignUpForm = ({ isSubmitting, error, handleSubmit }) => (
   >
     <Box maxContentWidth mx={[0, 'Auto']} mb={[0, '100px']}>
       <Box mt={[48, 70]} textAlign="center">
-        <Headline>{COPY.SIGNUP_HEADING}</Headline>
+        <Headline>{COPY.TWEETS_HEADING}</Headline>
       </Box>
 
       <Box display="block" flexWrap="wrap" alignItems="baseline">

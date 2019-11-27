@@ -7,6 +7,7 @@ const SIGNIN_NOT_A_MEMBER = 'Not a member yet?';
 const SIGNIN_SIGNUP_NOW = 'Sign Up Now';
 const SIGNUP_HEADING = 'Sign Up';
 const SIGNUP_CONFIRM_HEADING = 'Confirm Sign Up';
+const TWEETS_HEADING = 'Tweets';
 
 // MESSAGES
 // Profile page Messages
@@ -21,6 +22,7 @@ const MSG_PASSWORD_STRENGTH_C = 'Only include these symbols:';
 const MSG_REQ_FIRST_NAME = 'First name is required.';
 const MSG_REQ_LAST_NAME = 'Last name is required.';
 const MSG_REQ_SIGNUP_CODE = 'Verification code is required';
+const MSG_REQ_SEARCH_TERM = 'Search Term is required';
 
 // FIELDS AND LABELS
 // Profile page fields and labels
@@ -44,6 +46,7 @@ const copy = {
   SIGNIN_SIGNUP_NOW,
   SIGNUP_HEADING,
   SIGNUP_CONFIRM_HEADING,
+  TWEETS_HEADING,
 };
 
 const messages = {
@@ -57,6 +60,7 @@ const messages = {
   MSG_REQ_FIRST_NAME,
   MSG_REQ_LAST_NAME,
   MSG_REQ_SIGNUP_CODE,
+  MSG_REQ_SEARCH_TERM,
 };
 
 const fields = {

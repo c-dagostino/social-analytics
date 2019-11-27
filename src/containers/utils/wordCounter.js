@@ -83,10 +83,10 @@ export function getWordCountFromText(textToParse) {
 }
 
 function makeTextStringFromTweets(tweets) {
-  return tweets.reduce(
-    (result, { fullText }) => (result += ` ${fullText}`),
-    '',
-  );
+  return tweets.reduce((result, { fullText }) => {
+    // eslint-disable-next-line no-return-assign
+    return (result += ` ${fullText}`);
+  }, '');
 }
 
 export function getWordCountFromTweets(tweets) {

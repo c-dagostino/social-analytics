@@ -11,6 +11,6 @@ const makeSelectError = () =>
 const makeSelectUser = () =>
   createSelector(selectApp, appState => appState.user);
 
-const appSelectors = { makeSelectError, makeSelectUser }
+const appSelectors = { makeSelectError, makeSelectUser };
 
 export default appSelectors;

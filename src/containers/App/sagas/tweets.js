@@ -4,6 +4,7 @@ import actions from '../actions';
 import request from '../../utils/request';
 
 export function* fetchTweets(action) {
+
   try {
     const tweets = yield call(
       request,

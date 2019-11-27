@@ -46,7 +46,7 @@ const NavigationInner = styled.div(() => ({
 
 const renderTabs = tabs =>
   tabs.map(({ title, path }) => (
-    <Tab href={path} id={path}>
+    <Tab href={path} id={path} key={path}>
       {title}
     </Tab>
   ));
@@ -123,9 +123,6 @@ const NavigationBar = ({
 
           <Box flex="1">
             <Box display="flex" justifyContent="flex-end">
-              
-
-             
 
               <Box
                 ml="5px"
@@ -168,7 +165,7 @@ const NavigationBar = ({
       >
         <NavigationInner>
           <Box>
-            <Tabs size="small" onChange={onClickPage} active={currentPath}>
+            <Tabs size="small" onChange={onClickPage} activePath={currentPath}>
               {renderTabs(tabs)}
             </Tabs>
           </Box>
@@ -182,7 +179,7 @@ const NavigationBar = ({
         onClose={() => setDropdownAnchor(null)}
       >
         {menuItems.map(({ title, onClick }) => (
-          <MenuItem onClick={onClickMenuItem(onClick)}>{title}</MenuItem>
+          <MenuItem onClick={onClickMenuItem(onClick)} key={title}>{title}</MenuItem>
         ))}
       </Menu>
     </Box>

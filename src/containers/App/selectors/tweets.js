@@ -11,6 +11,13 @@ const makeSelectTweets = () =>
 const makeSelectTweetsLoading = () =>
   createSelector(selectApp, appState => appState.isLoading);
 
-const tweetSelectors = { makeSelectTweets, makeSelectTweetsLoading };
+const makeSelectTweetsError = () =>
+  createSelector(selectApp, appState => appState.error);
+
+const tweetSelectors = {
+  makeSelectTweets,
+  makeSelectTweetsLoading,
+  makeSelectTweetsError,
+};
 
 export default tweetSelectors;

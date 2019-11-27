@@ -33,7 +33,6 @@ const getPadding = size => {
 
 const Wrapper = styled(Box)(props => {
   const { illustrationBlue } = props.theme.colors;
-
   return {
     padding: getPadding(props.size),
     fontFamily: props.theme.fonts.sofia,

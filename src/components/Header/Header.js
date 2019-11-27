@@ -45,9 +45,7 @@ const Header = ({ onLogOut, currentPath, onClickPage, memberFirstName }) => {
         onClickPage={onClickPage}
         currentPath={currentPath}
         memberFirstName={memberFirstName}
-        tabs={[
-          { title: 'Tweets', path: '/tweets' },
-        ]}
+        tabs={[{ title: 'Tweets', path: '/tweets', id: '/tweets' }]}
         menuItems={[{ title: 'Log out', onClick: onClickLogout }]}
       />
     </>

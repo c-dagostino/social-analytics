@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import WordCloud from 'react-d3-cloud';
 import { getWordCountFromTweets } from '../../containers/utils/wordCounter';
+import { Box } from '../../design-system/atoms';
 import selectors from '../../containers/App/selectors';
 
 const WordCloudComponent = ({ tweets }) => {
@@ -14,16 +15,18 @@ const WordCloudComponent = ({ tweets }) => {
   if (tweets) {
     const wordCounts = getWordCountFromTweets(tweets.slice(0, 50));
     return (
-      <div>
-        <h1>Word Cloud</h1>
-        <div style={{ marginTop: '-100px' }}>
+      <Box>
+        <Box textAlign="center">
+          <h1>Word Cloud</h1>
+        </Box>
+        <Box mt={[-50, -50]}>
           <WordCloud
             data={wordCounts}
             fontSizeMapper={fontSizeMapper}
             rotate={rotate}
           />
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
   }
 

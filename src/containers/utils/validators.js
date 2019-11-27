@@ -28,3 +28,5 @@ export const firstName = yup.string().required(MSG.MSG_REQ_FIRST_NAME);
 export const lastName = yup.string().required(MSG.MSG_REQ_LAST_NAME);
 
 export const signUpCode = yup.string().required(MSG.MSG_REQ_SIGNUP_CODE);
+
+export const searchTerm = yup.string().required(MSG.MSG_REQ_SEARCH_TERM);

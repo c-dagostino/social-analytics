@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './containers/App';
@@ -62,7 +62,7 @@ createGlobalStyle`
 `;
 
 Amplify.configure(awsmobile);
-
+console.log(Auth.configure());
 ReactDOM.render(
     <Provider store={store}>
         <Router>

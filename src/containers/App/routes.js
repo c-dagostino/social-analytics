@@ -5,6 +5,7 @@ import SignUp from '../SignUp';
 import ConfirmSignUp from '../ConfirmSignUp';
 import PrivateRoute from './PrivateRoute';
 import Dashboard from '../Dashboard';
+import CovidPage from '../Covid';
 
 const Routes = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const Routes = () => (
       <Route exact path="/sign-up" component={SignUp} />
       <Route exact path="/confirm-sign-up" component={ConfirmSignUp} />
       <Route exact path="/tweets" component={Dashboard} />
+      <Route exact path="/covid" component={CovidPage} />
     </Switch>
   </BrowserRouter>
 );
